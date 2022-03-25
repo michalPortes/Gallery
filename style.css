@@ -8,7 +8,22 @@
   --header-color: #6d6d6d;
   --details-1-color: #cccbcb83;
   --details-2-color: #cccbcb83;
+  --text: black;
+  --box-show: rgba(0, 0, 0, 0.904);
+  --text-white: white;
+  --text-toggle: rgb(255, 255, 255);
+
+  --box-show-dark: rgba(255, 255, 255, 0.904);
 }
+/* :root {
+  --header-color: #6d6d6d;
+  --details-1-color: #cccbcb83;
+  --details-2-color: #cccbcb83;
+  --text: white;
+  
+  --text-white: white;
+  --text-toggle: black;
+} */
 ::marker {
   color: transparent;
 }
@@ -40,27 +55,32 @@ section header .details-2 {
 }
 h1.title {
   padding-top: 6.5rem;
-  color: white;
+  color: var(--text-white);
 }
 /*/HEADER*/
 
 /*ICONS*/
-button.btn.btn-light a{
-  color: transparent;
+div.section-toggle {
+  background: var(--text);
+  padding: 1rem;
 }
-button.btn.btn-light{
-  margin: 0.5rem;
-}
-svg.bi.bi-filter-right.size {
+svg.bi.bi-toggle-on.size {
   height: 1.5rem;
   width: 1.5rem;
-  color: black;
+  color: var(--text-toggle);
+  cursor: pointer;
 }
-svg.bi.bi-filter-right.size.opacity{
+svg.bi.bi-toggle-on.size.opacity {
   height: 1.5rem;
   width: 1.5rem;
-  color: rgb(255, 255, 255);
+  color: var(--text-white);
   opacity: 0;
+}
+div p.text-toggle {
+  display: grid;
+  color: var(--text-toggle);
+  margin: 0;
+  padding-left: 1rem;
 }
 /*/ICONS*/
 
@@ -84,8 +104,8 @@ svg.bi.bi-filter-right.size.opacity{
   transform: translateY(-5px);
 }
 .second {
-  border: 0px solid #000000;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.904);
+  border: 0px solid var(--text);
+  box-shadow: 0px 0px 12px var(--box-show);
 }
 /*heigth*/
 .h-1 {
@@ -188,7 +208,7 @@ svg.bi.bi-filter-right.size.opacity{
 /*FOOTER*/
 .name {
   padding-top: 1rem;
-  color: rgb(255, 255, 255);
+  color: var(--text-white);
   padding-left: 2rem;
   padding-bottom: 1rem;
 }
@@ -199,7 +219,7 @@ svg.bi.bi-filter-right.size.opacity{
 ul li a {
   padding: 0.5rem;
   list-style-type: none;
-  color: rgb(255, 255, 255);
+  color: var(--text-white);
 }
 footer.footer ul {
   padding-bottom: 2rem;
@@ -211,13 +231,13 @@ footer.footer ul li {
   transition: 0.3s;
 }
 .bi {
-  color: rgb(255, 255, 255);
+  color: var(--text-white);
 }
 footer.footer ul li:hover {
   transform: translateY(-8px);
 }
 footer.footer ul li a:hover {
-  color: rgb(255, 255, 255);
+  color: var(--text-white);
 }
 
 footer.footer .details-1-footer {
@@ -344,8 +364,6 @@ footer.footer .details-1-footer {
   }
 }
 @media (min-width: 1200px) {
-
-
   .gridCentered {
     grid-template-columns: repeat(7, 2fr);
     grid-template-rows: repeat(6, 15vw);
@@ -425,7 +443,7 @@ footer.footer .details-1-footer {
     grid-row: 4 / span 1;
   }
   .h-16 {
-    padding-top: 6rem;
+    padding-top: 5rem;
     grid-column: 1 / span 1;
     grid-row: 5 / span 1;
   }
@@ -440,7 +458,7 @@ footer.footer .details-1-footer {
     grid-row: 5 / span 1;
   }
   .h-19 {
-    padding-top: 2.5rem;
+    padding-top: 4rem;
     grid-column: 4 / span 1;
     grid-row: 5 / span 1;
   }
@@ -456,45 +474,44 @@ footer.footer .details-1-footer {
   }
 }
 
-
 /*====================DARK MODE=======================*/
 
 /*TITLE DARK*/
-section .container-sm h1.title.dark-mode{
-  color: rgb(29, 28, 28);
+section .container-sm h1.title.dark-mode {
+  color: var(--text);
 }
 
 /*BUTTON ON*/
-button.btn.btn-light{
-  background: rgb(29, 28, 28);
+button.btn.btn-light {
+  background: var(--text);
   border: none;
 }
-path.dark-mode{
-  color: white;
+path.dark-mode {
+  color: var(--text-white);
 }
-.buttons.dark-mode{
-  background: rgb(29, 28, 28);
+.buttons.dark-mode {
+  background: var(--text);
 }
 
 /*BODY DARK*/
-div.dark-mode.gridCentered{
-  background: rgb(29, 28, 28);
+div.dark-mode.gridCentered {
+  background: var(--text);
 }
 .second.dark-mode {
-  border: 0px solid #e4e4e4;
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.356);
+  border: 1px solid var(--text-white);
+  box-shadow: 0px 0px 10px var(--box-show-dark);
 }
 
 /*FOOTER DARK*/
-footer div.name.dark-mode{
-  color: rgb(29, 28, 28);
+footer div.name.dark-mode {
+  color: var(--text);
 }
-svg.bi.dark-mode{
-  color: rgb(29, 28, 28);
+svg.bi.dark-mode {
+  color: var(--text);
 }
-ul li a.dark-mode{
-  color: rgb(29, 28, 28);
+ul li a.dark-mode {
+  color: var(--text);
 }
 footer.footer ul li a.dark-mode:hover {
-  color: rgb(29, 28, 28);
+  color: var(--text);
 }
